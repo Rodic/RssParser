@@ -13,7 +13,7 @@ trait RssParser {
   def getTitle(node: Node): String = (node \ "title").text
 
   def parse(): Seq[RssItem] = {
-    for{ item <- getItems() } yield new RssItem(getTitle(item), getText(item), getUrl(item))
+    for{ item <- getItems() } yield RssItem(getTitle(item), getText(item), getUrl(item))
   }
 }
 
